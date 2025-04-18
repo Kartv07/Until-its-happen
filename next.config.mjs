@@ -12,6 +12,9 @@ const nextConfig = {
       },
     ],
   },
+  env : {
+    SERVER : process.env.SERVER,
+  }
 };
 
 export default nextConfig;
