@@ -160,7 +160,7 @@ function Sidebar({ sidebarItems }) {
                 </div>
               ))}
 
-              {/* {menuItems?.length <= 2 ? (
+              {menuItems?.length <= 2 ? (
                 <SkeletonTheme baseColor="#202020" highlightColor="#444">
                   <p className="w-full flex flex-col items-center justify-center mx-auto mt-8">
                     <Skeleton count={5} width={220} height={12} />
@@ -168,7 +168,7 @@ function Sidebar({ sidebarItems }) {
                 </SkeletonTheme>
               ) : (
                 <></>
-              )} */}
+              )}
             </div>
           </div>
           <div className="flex items-center gap-4 justify-center border-t-2 border-[#1d1e24] pt-8 py-4">
