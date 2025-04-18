@@ -1,7 +1,6 @@
 import axios from "axios";
 
-// const SERVER = `https://uih-blogs.onrender.com/`;
-const SERVER = `http://localhost:8000/`;
+const SERVER = `https://uih-blogs.onrender.com/`;
 
 const api = axios.create({
   baseURL: SERVER,
