@@ -3,6 +3,7 @@ import React from "react";
 import { FetchStaticPaths, getBlogsData } from "@/../api.service.js";
 import { ChevronLeft } from "lucide-react";
 import { useRouter } from "next/router";
+import SeoComponent from "@/components/SeoComponent";
 
 export const getStaticPaths = async () => {
   let staticPaths = await FetchStaticPaths(`slug=slug`);
@@ -33,6 +34,8 @@ function DetailPage({ paramsData, blogsData}){
   const router = useRouter();
 
   return (
+    <>
+    <SeoComponent pageTitle={`Article | ${paramsData?.categorySlug.toUpperCase()} | Until It's Happen`} seo={{}} />
     <div className="m-8 relative p-8 bg-[#141414] border-2 border-[#1d1e24] rounded-lg">
       <div onClick={() => router.back()}>
         <div className="p-2 mb-4 w-fit hover:cursor-pointer hover:border-[#53e1e8] border-2 rounded-lg border-[#1d1e24] ">
@@ -58,6 +61,7 @@ function DetailPage({ paramsData, blogsData}){
         dangerouslySetInnerHTML={{ __html: blogDetails?.[0]?.desc }}
       ></div>
     </div>
+    </>
   );
 }
 
