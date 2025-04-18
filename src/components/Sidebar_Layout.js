@@ -19,29 +19,23 @@ import { useRouter } from "next/router";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
-function Sidebar() {
+function Sidebar({ sidebarItems }) {
   const [menuItems, setMenuItems] = useState([
     { title: "Dashboard", slug: "dashboard", icon: <House color="#53e1e8" /> },
     { title: "Youtube", slug: "youtube", icon: <Youtube color="#53e1e8" /> },
   ]);
 
+  useEffect(() => {
+    setMenuItems([...menuItems, ...sidebarItems]);
+  }, [sidebarItems]);
+
   const [currSlug, setCurrSlug] = useState(null);
 
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
-
-  const sidebarItemsHandler = async () => {
-    let res = await getSidebarItems();
-    setMenuItems([...menuItems, ...(res?.data || [])]);
-  };
-
   const router = useRouter();
 
   const pathName = router.pathname;
-
-  useEffect(() => {
-    sidebarItemsHandler();
-  }, []);
 
   return (
     <div>

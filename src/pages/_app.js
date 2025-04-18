@@ -6,6 +6,8 @@ import {
   Poppins,
   Cedarville_Cursive,
 } from "next/font/google";
+import { getSidebarItems } from "../../api.service";
+import { useState, useEffect } from "react";
 
 const layouts = {
   ContentLayout: ContentLayout,
@@ -33,17 +35,27 @@ const poppins = Poppins({
 });
 
 export default function App({ Component, pageProps }) {
-  const Layout =
-    layouts[Component.layout] ||
-    ((props) => <Component {...props} />);
+  const [sidebarItems, setSidebarItems] = useState([]);
+
+  const sidebarItemsHandler = async () => {
+    let res = await getSidebarItems();
+    setSidebarItems(res?.data || []);
+  };
+
+  useEffect(() => {
+    sidebarItemsHandler();
+  }, []);
+
+  const Layout = layouts[Component.layout] || (({ children }) => <>{children}</>);
 
   return (
     <div
       className={`${geistSans.variable} ${poppins.variable} ${geistMono.variable} ${cursive.variable} antialiased flex text-white bg-black`}
     >
-      <Layout>
+      <Layout sidebarItems={sidebarItems}>
         <Component {...pageProps} />
       </Layout>
     </div>
   );
 }
+
