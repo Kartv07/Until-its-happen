@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Typeahead from "@/components/Typeahead";
 import SunEditorComponent from "@/components/SunEditor";
-import { getAllCategoriesParentCategories, getBlogsData, updateNewBlog } from "../../../../../../uih-blogs-frontend/api.service";
 import { useRouter } from "next/router";
-
+import { getAllCategoriesParentCategories, getBlogsData, updateNewBlog } from '@/../api.service.js';
 import Swal from "sweetalert2";
 import "sweetalert2/dist/sweetalert2.min.css";
 import Loader from "@/components/Loader";

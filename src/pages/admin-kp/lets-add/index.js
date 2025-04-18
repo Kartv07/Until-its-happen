@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Typeahead from "@/components/Typeahead";
 import SunEditorComponent from "@/components/SunEditor";
-import {
-  getAllCategoriesParentCategories,
-  addNewBlog,
-} from "../../../../../uih-blogs-frontend/api.service";
+import { getAllCategoriesParentCategories, addNewBlog } from "@/../api.service.js";
 import { useRouter } from "next/navigation";
 
 import Swal from "sweetalert2";
 import "sweetalert2/dist/sweetalert2.min.css";
-import { Content } from "next/font/google";
 
 function AddPost() {
   const [addedNewCategory, setAddedNewCategory] = useState(false);
