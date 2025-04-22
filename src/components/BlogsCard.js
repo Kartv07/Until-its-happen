@@ -20,7 +20,7 @@ export default function BlogsCard({blogsData, linkHref, parentPage = false}) {
               <h1 className="text-xl max-w-[90%] font-semibold font-sans ">
                 {blog?.heading}
               </h1>
-              <div className="text-lg">{blog.smallDesc}</div>
+              <div className="text-lg line-clamp-2">{blog.smallDesc}</div>
               <div className="flex justify-between items-center">
                 <Link
                   href={`${linkHref}/${parentPage ? blog?.categories?.slug + '/' + blog?.slug : blog?.slug}`}
