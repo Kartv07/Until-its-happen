@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 import "sweetalert2/dist/sweetalert2.min.css";
 import Loader from "@/components/Loader";
 
-function UpdatePost() {
+function UpdatePost({params}) {
   const [addedNewCategory, setAddedNewCategory] = useState(false);
   const [addedNewParentCategory, setAddedNewParentCategory] = useState(false);
   const [description, setDescription] = useState(null);
@@ -22,7 +22,7 @@ function UpdatePost() {
 
   const router = useRouter();
 
-  let pathName = router?.pathname;
+  let pathName = router?.asPath;
 
   const getParentChildCategories = async () => {
     let res = await getAllCategoriesParentCategories();

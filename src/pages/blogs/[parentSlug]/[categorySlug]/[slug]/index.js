@@ -57,7 +57,7 @@ function DetailPage({ paramsData, blogsData}){
         </div>
       </div>
       <div
-        className="font-sans font-normal leading-8 tracking-wider text-lg cursor-grab"
+        className="font-poppins font-normal leading-8 tracking-wider cursor-grab"
         dangerouslySetInnerHTML={{ __html: blogDetails?.[0]?.desc }}
       ></div>
     </div>
