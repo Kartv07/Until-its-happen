@@ -24,6 +24,7 @@ export const getStaticProps = async ({ params }) => {
       paramsData : {categorySlug, parentSlug},
       blogsData : blogsData?.data ?? [],
     },
+    revalidate : 900, //15 minutes
   };
 };
 
