@@ -44,8 +44,6 @@ const SunEditorComponent = ({ initialValue, setDescription, handleSaveDisable = 
     handleSaveDisable();
   };
 
-  console.log(initialValue)
-
   return (
     <div>
       {plugins && plugins?.length > 0 && (

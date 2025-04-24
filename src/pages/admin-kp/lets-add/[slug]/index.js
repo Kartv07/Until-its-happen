@@ -22,13 +22,13 @@ function UpdatePost({params}) {
 
   const router = useRouter();
 
-  let pathName = router?.asPath;
+  let {slug} = router?.query;
 
   const getParentChildCategories = async () => {
     let res = await getAllCategoriesParentCategories();
     setParentCategories(res?.data?.parentCategories);
     setCategories(res?.data?.categories);
-    let blogDetails = await getBlogsData(`slug=${pathName.split("/")[3]}`);
+    let blogDetails = await getBlogsData(`slug=${slug}`);
     if(blogDetails?.status == 200) {
       setHeading(blogDetails?.data?.[0]?.heading);
       setSmallDesc(blogDetails?.data?.[0]?.smallDesc);
@@ -47,8 +47,10 @@ function UpdatePost({params}) {
 
 
   useEffect(() => {
-    getParentChildCategories();
-  }, []);
+    if (router.isReady && slug) {
+      getParentChildCategories();
+    }
+  }, [router.isReady, slug]);
 
 
   const handleSubmit = async () => {

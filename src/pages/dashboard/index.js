@@ -31,7 +31,7 @@ export default function Dashboard({ allCategories }) {
             href={`/blogs/${cat?.parentCategory?.slug}/${cat?.slug}`}
             key={index}
           >
-            <div className="relative p-4 h-40 rounded-xl bg-[linear-gradient(145deg,#141414_80%,#53e1e8_20%)] hover:cursor-pointer backdrop-blur-lg border-2 border-[#141414] hover:border-[#53e1e8] transform transition-all duration-300 hover:scale-105 hover:text-[#53e1e8]">
+            <div className="relative p-4 h-46 rounded-xl bg-[linear-gradient(145deg,#141414_80%,#53e1e8_20%)] hover:cursor-pointer backdrop-blur-lg border-2 border-[#141414] hover:border-[#53e1e8] transform transition-all duration-300 hover:scale-105 hover:text-[#53e1e8]">
               <div className="text-2xl font-semibold">{cat?.title}</div>
               <p className="mt-2 text-sm">
                 {cat?.desc ??
